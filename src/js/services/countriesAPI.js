@@ -3,15 +3,15 @@ class CountriesAPI {
         this.url = 'https://restcountries.eu/rest/v2';
     }
 
-    // serializeCountries() {
-    //     <img src="https://www.countryflags.io/be/flat/64.png"></img>
-    // }
+    // eslint-disable-next-line class-methods-use-this
+    serializeCountries(countries) {
+        return countries.map(({ name, alpha2Code, flag }) => ({ name, alpha2Code, flag }));
+    }
 
     async getAllCountries() {
         try {
             const res = await fetch(`${this.url}/all`).then((resp) => resp.json());
-            console.log('res: ', res);
-            return res;
+            return this.serializeCountries(res);
         } catch (error) {
             return Promise.reject(error);
         }
