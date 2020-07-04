@@ -1,1 +1,2 @@
-// export { default as generateMaterialize } from './materialize';
+// eslint-disable-next-line import/prefer-default-export
+export { default as generateMaterialize } from './materialize';

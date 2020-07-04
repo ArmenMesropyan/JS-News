@@ -1,8 +1,16 @@
 import '../css/main.css';
-// import { generateMaterialize } from './plugins';
+import { generateCountries } from './view';
 import countriesAPI from './services';
 
-document.addEventListener('DOMContentLoaded', () => {
-    console.log(countriesAPI.getAllCountries());
-    // generateMaterialize();
-});
+// eslint-disable-next-line consistent-return
+async function generateApplication() {
+    try {
+        const countries = await countriesAPI.getAllCountries();
+        generateCountries(countries, '.countries-select__select');
+    } catch (error) {
+        console.log(error);
+        // on-error
+    }
+}
+
+document.addEventListener('DOMContentLoaded', generateApplication);
