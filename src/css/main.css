@@ -1,374 +1,67 @@
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+html {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
 body {
-    min-height: 100vh;
-    height: 100%;
-    background-color: #ffdd57;
-}
-
-.container {
-    position: relative;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-
-/* Navigation */
-
-.main-nav {
-    position: relative;
-    z-index: 0;
-}
-
-.main-nav__item {
-    align-items: center;
-}
-
-.logo__img {
-    max-width: 90px;
-    font-size: 0;
-    animation-duration: 0.7s;
-    animation-iteration-count: infinite;
-}
-
-.logo__text {
-    font-size: 30px;
-    color: #461818;
-    font-weight: 500;
-    animation: type 2s steps(30);
-    overflow: hidden;
-    white-space: nowrap;
-    border-right: 3px solid #461818;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-@keyframes type {
-    0% {
-        width: 11ch;
-        border-right: 1px solid #ffdd57;
-    }
-    25% {
-        width: 11ch;
-        border-right: 3px solid #461818;
-    }
-    50% {
-        border-right: 1px solid #ffdd57;
-    }
-    75% {
-        border-right: 3px solid #461818;
-    }
-    100% {
-        width: 0ch;
-        border-right: 1px solid #ffdd57;
-    }
-}
-
-.main-nav .container {
-    align-items: center;
-}
-
-.course .course__select {
-    border: 1px solid #461818;
-    color: #461818;
-}
-
-.course:not(.is-multiple):not(.is-loading)::after {
-    border-color: #461818;
-}
-
-
-/* Form */
-
-.tickets {
-    padding-top: 2.6rem;
-}
-
-.tickets-form {
-    width: 550px;
-    background-color: #9d5d3d;
-    box-shadow: 0 0em 0em 1.075em #461818, 0 0 0 1px rgba(10, 10, 10, .02);
-}
-
-.tickets__form {
-    margin: 0 auto;
-}
-
-.tickets__form {
-    animation-duration: 1s;
-    animation-iteration-count: 1;
-}
-
-.tickets-form label {
-    color: #fff;
-}
-
-.tickets-form input::placeholder {
-    color: #363636b9;
-}
-
-.tickets-form__date .field:not(:last-child),
-.tickets-form__route .field:not(:last-child) {
-    margin-bottom: 20px;
-}
-
-.tickets-form__date,
-.tickets-form__route {
-    width: calc(50% - 20px);
-}
-
-.tickets-form__form {
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.tickets-form input:active,
-.tickets-form input:focus {
-    border-color: #461818;
-    box-shadow: 0 0 0 0.125em rgb(157, 93, 61);
-    border-width: 1px;
-}
-
-.tickets-form .dropdown-content li>a,
-.tickets-form .dropdown-content li>span {
-    color: #9d5d3d;
-}
-
-.tickets-form__button {
-    margin-top: 20px;
-}
-
-
-/* Tickets */
-
-.tickets-list__list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.tickets-list__item {
-    width: calc(100% * 6 / 12 - 40px);
-    justify-content: center;
-    margin: 20px;
-    background-color: #461818;
-    color: #fff;
-    padding: 20px 35px;
-}
-
-.tickets-item__way,
-.tickets-item__info,
-.tickets-item__airline {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.tickets-item__airline,
-.tickets-item__logo {
-    max-height: 100px;
-}
-
-.tickets-item__airline {
-    align-items: center;
-    justify-content: left;
     margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 21px;
+    color: #000;
+    overflow-x: hidden;
+    min-height: 100vh;
+    background-color: #dadada;
 }
 
-.tickets-item__info {
-    align-items: center;
+a {
+    text-decoration: none;
 }
 
-.tickets-item__logo {
-    margin-right: 20px;
+img {
+    max-width: 100%;
+    height: auto;
 }
 
-.tickets-item__name {
-    font-weight: 700;
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
-.tickets-item__origin,
-.tickets-item__destination {
-    text-transform: uppercase;
-    font-weight: 700;
-}
-
-.tickets-item__depart,
-.tickets-item__return {
-    font-size: 12px;
-}
-
-.tickets-item__depart {
-    color: #ffdd57;
-}
-
-.tickets-item__destination {
-    color: #dfd9c3;
-}
-
-.tickets-item__origin span {
-    position: relative;
-    animation-name: origin;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    margin-right: 10px;
-}
-
-.tickets-item__destination span {
-    position: relative;
-    animation-name: destination;
-    animation-duration: 2s;
-    animation-iteration-count: infinite;
-    margin-right: 10px;
-}
-
-@keyframes origin {
-    0% {
-        top: 0;
-        left: 0;
-    }
-    50% {
-        top: 15px;
-        left: -15px;
-    }
-    100% {
-        top: 0;
-        left: 0;
-    }
-}
-
-@keyframes destination {
-    0% {
-        bottom: 0;
-        right: 0;
-    }
-    50% {
-        bottom: 15px;
-        right: 15px;
-    }
-    100% {
-        bottom: 0;
-        right: 0;
-    }
-}
-
-.tickets-item__price {
-    cursor: text;
-    display: block;
-    width: 100px;
-    margin-bottom: 10px;
-}
-
-.tickets-item__favorites-btn {
-    transition: 0.5s ease;
-    background-color: #461818;
-    color: #fff;
-}
-
-.tickets-item__favorites-btn:hover {
-    background-color: #fff;
-    color: #461818;
-}
-
-
-/* Favorites */
-
-.favorites__open {
-    position: fixed;
-    right: 20px;
-    bottom: 20px;
-    font-size: 0;
-    background: url(../img/favorite.svg) center center no-repeat;
-    width: 50px;
-    height: 50px;
-    background-size: 100%;
-}
-
-.favorites__open:hover {
-    background: url(../img/favorite-white.svg) center center no-repeat;
-    background-size: 100%;
-}
-
-.favorites-list__list {
+.countries-select .container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row-reverse;
+}
+
+.countries-select .select-wrapper {
+    min-width: 180px;
+}
+
+.countries-select .dropdown-content li {
+    display: flex;
+    flex-direction: row-reverse;
     align-items: center;
+    justify-content: flex-end;
 }
 
-.favorite-delete,
-.favorite-btn {
-    background-color: #ba1f1f;
-    border: none;
-    max-width: 170px;
-}
-
-.favorites-list .tickets-list__item {
-    width: 100%;
-}
-
-
-/* Media */
-
-@media screen and (max-width: 1023px) {
-    .main-nav .container {
-        display: flex;
-    }
-    .course {
-        margin-left: auto;
-    }
-}
-
-@media screen and (max-width: 800px) {
-    .tickets-list__item {
-        width: 70%;
-    }
-    .tickets-item .tickets-item__way {
-        margin-top: 50px;
-    }
-    .tickets-item__flight {
-        margin: 15px 0;
-    }
-}
-
-@media screen and (max-width: 700px) {
-    .tickets .tickets-form {
-        width: 400px;
-    }
-    .tickets-form__form input {
-        font-size: 14px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .tickets-item__origin {
-        margin-bottom: 30px;
-    }
-    .favorites-list {
-        width: 90%;
-    }
-}
-
-@media screen and (max-width: 450px) {
-    .main-nav ul.main-nav__list {
-        flex-direction: column;
-        align-items: baseline;
-    }
-    .main-nav__list .navbar-end {
-        margin: 0;
-        align-self: center;
-    }
-    .tickets .tickets-form {
-        width: 270px;
-    }
-    .tickets-form__form {
-        display: block;
-    }
-    .tickets-form__date {
-        margin-top: 20px;
-    }
-    .tickets-form .tickets-form__route,
-    .tickets-form .tickets-form__date,
-    .tickets-list__item {
-        width: 100%;
-    }
+.countries-select .select-dropdown li img {
+    width: 20px;
+    height: 20px;
+    margin-left: auto;
 }
