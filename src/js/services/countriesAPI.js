@@ -3,6 +3,10 @@ class CountriesAPI {
         this.url = 'https://restcountries.eu/rest/v2';
     }
 
+    // serializeCountries() {
+    //     <img src="https://www.countryflags.io/be/flat/64.png"></img>
+    // }
+
     async getAllCountries() {
         try {
             const res = await fetch(`${this.url}/all`).then((resp) => resp.json());

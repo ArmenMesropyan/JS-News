@@ -1,1 +1,3 @@
-// export { default as countriesAPI } from './countriesAPI';
+import countriesAPI from './countriesAPI';
+
+export default countriesAPI;
