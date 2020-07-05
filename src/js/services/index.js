@@ -1,3 +1,2 @@
-import countriesAPI from './countriesAPI';
-
-export default countriesAPI;
+export { default as countriesAPI } from './countriesAPI';
+export { default as newsAPI } from './newsAPI';

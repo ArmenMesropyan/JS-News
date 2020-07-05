@@ -1,6 +1,12 @@
 import '../css/main.css';
 import { generateCountries, generateInput } from './view';
-import countriesAPI from './services';
+import { countriesAPI, newsAPI } from './services';
+
+async function searchNews({ key, target }) {
+    if (key !== 'Enter') return;
+    const articles = await newsAPI.getNewsByQuery(target.value);
+    console.log('articles: ', articles);
+}
 
 // eslint-disable-next-line consistent-return
 async function generateApplication() {
@@ -9,10 +15,7 @@ async function generateApplication() {
         generateCountries(countries, '.countries-select__select');
         const input = generateInput();
 
-        input.addEventListener('keypress', ({ key }) => {
-            if (key !== 'Enter') return;
-            console.log(input.value);
-        });
+        input.addEventListener('keypress', searchNews);
     } catch (error) {
         console.log(error);
         // on-error
