@@ -8,7 +8,11 @@ async function generateApplication() {
         const countries = await countriesAPI.getAllCountries();
         generateCountries(countries, '.countries-select__select');
         const input = generateInput();
-        console.log('input: ', input);
+
+        input.addEventListener('keypress', ({ key }) => {
+            if (key !== 'Enter') return;
+            console.log(input.value);
+        });
     } catch (error) {
         console.log(error);
         // on-error

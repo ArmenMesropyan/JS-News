@@ -6,11 +6,13 @@ export default async function generateCountries(countries, selector) {
         const container = document.querySelector(selector);
         const user = await fetch('https://ipapi.co/json/').then((resp) => resp.json());
         const html = countries.map(({ alpha2Code, flag, name }) => `
-            <option value="${alpha2Code}" data-icon="${flag}" ${alpha2Code === user.country ? 'selected disabled' : ''} class="countries-select__option">
+            <option value="${alpha2Code}" data-icon="${flag}" class="countries-select__option">
                 ${name}
             </option>
         `);
         container.insertAdjacentHTML('afterbegin', html);
+
+        container.value = user.country;
 
         generateMaterialize();
 
