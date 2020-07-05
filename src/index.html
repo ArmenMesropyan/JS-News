@@ -15,8 +15,9 @@
             </select>
         </div>
     </header>
-    <main>
-        <section class="search">
+    <main class="news-selects">
+        <section class="news-selects__search search">
+            <h2 class="visually-hidden">Search news by query.</h2>
             <input class="search__input" type="text">
             <svg viewBox="0 0 700 100" class="magnifying-glass">
             <path
@@ -31,6 +32,47 @@
             </svg>
             <div class="search__overlay search__overlay--first"></div>
             <div class="search__overlay search__overlay--second"></div>
+        </section>
+        <section class="categories news-selects__categories">
+            <h2 class="visually-hidden">Search daily news by category.</h2>
+            <ul class="categories__list">
+                <li class="categories__items categories__items_general">
+                    <h3 class="categories__title visually-hidden">General News</h3>
+                    <object data="img/general.svg" type="image/svg+xml" class="categories__icon">
+                        General
+                    </object>
+                </li>
+                <li class="categories__items categories__items_sport">
+                    <h3 class="categories__title visually-hidden">Sport News</h3>
+                    <object data="img/sport.svg" type="image/svg+xml" class="categories__icon">
+                        Sport
+                    </object>
+                </li>
+                <li class="categories__items categories__items_business">
+                    <h3 class="categories__title visually-hidden">Business News</h3>
+                    <object data="img/business.svg" type="image/svg+xml" class="categories__icon">
+                        Business
+                    </object>
+                </li>
+                <li class="categories__items categories__items_health">
+                    <h3 class="categories__title visually-hidden">Health News</h3>
+                    <object data="img/health.svg" type="image/svg+xml" class="categories__icon">
+                        Health
+                    </object>
+                </li>
+                <li class="categories__items categories__items_science">
+                    <h3 class="categories__title visually-hidden">Science News</h3>
+                    <object data="img/science.svg" type="image/svg+xml" class="categories__icon">
+                        Science
+                    </object>
+                </li>
+                <li class="categories__items categories__items_technology">
+                    <h3 class="categories__title visually-hidden">Technology News</h3>
+                    <object data="img/technology.svg" type="image/svg+xml" class="categories__icon">
+                        Technology
+                    </object>
+                </li>
+            </ul>
         </section>
     </main>
 

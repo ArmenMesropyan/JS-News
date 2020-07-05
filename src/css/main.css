@@ -1,3 +1,29 @@
+/* import images */
+
+.sport {
+    background: url(../img/sport.svg);
+}
+
+.business {
+    background: url(../img/business.svg);
+}
+
+.health {
+    background: url(../img/health.svg);
+}
+
+.technology {
+    background: url(../img/technology.svg);
+}
+
+.science {
+    background: url(../img/science.svg);
+}
+
+.general {
+    background: url(../img/general.svg);
+}
+
 *,
 *::before,
 *::after {
@@ -66,12 +92,16 @@ img {
     margin-left: auto;
 }
 
-.search {
-    width: 300px;
+.news-selects {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.search {
+    width: 300px;
+    width: 300px;
 }
 
 .magnifying-glass {
@@ -160,4 +190,8 @@ img {
 .search:not(.active) .search__overlay--second,
 .search:not(.searching) .search__overlay--second {
     visibility: hidden;
+}
+
+.categories__icon {
+    width: 50px;
 }
