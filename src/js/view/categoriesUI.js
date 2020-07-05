@@ -1,9 +1,6 @@
-import { newsAPI } from '../services';
-
 class CategoriesUI {
-    constructor(api) {
+    constructor() {
         this.elements = document.getElementsByClassName('categories__item');
-        this.api = api;
     }
 
     // eslint-disable-next-line class-methods-use-this
@@ -19,6 +16,6 @@ class CategoriesUI {
     }
 }
 
-const categoriesUI = new CategoriesUI(newsAPI);
+const categoriesUI = new CategoriesUI();
 
 export default categoriesUI;

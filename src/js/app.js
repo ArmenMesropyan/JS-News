@@ -1,5 +1,5 @@
 import '../css/main.css';
-import { generateCountries, generateInput, categoriesUI } from './view';
+import { countriesUI, generateInput, categoriesUI } from './view';
 import { countriesAPI, newsAPI } from './services';
 
 async function searchNewsByQuery({ key, target }) {
@@ -9,14 +9,19 @@ async function searchNewsByQuery({ key, target }) {
 }
 
 async function searchNewsByCategory(category) {
-    console.log(category);
+    try {
+        const articles = await newsAPI.getNewsByCategory(category, countriesUI.selectValue);
+        console.log('articles: ', articles);
+    } catch (error) {
+        console.log(error);
+        // on-error
+    }
 }
 
-// eslint-disable-next-line consistent-return
 async function generateApplication() {
     try {
         const countries = await countriesAPI.getAllCountries();
-        generateCountries(countries, '.countries-select__select');
+        countriesUI.generateCountries(countries);
         const input = generateInput();
         categoriesUI.generateCategories(searchNewsByCategory);
 
