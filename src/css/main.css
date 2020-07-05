@@ -60,6 +60,10 @@ img {
     justify-content: flex-end;
 }
 
+.countries-select .dropdown-trigger {
+    text-indent: -80px;
+}
+
 .countries-select .select-dropdown li img {
     width: 20px;
     height: 20px;
