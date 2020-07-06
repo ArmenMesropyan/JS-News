@@ -15,50 +15,64 @@
             </select>
         </div>
     </header>
-    <main class="news-selects">
-        <section class="news-selects__search search">
-            <h2 class="visually-hidden">Search news by query.</h2>
-            <input class="search__input" type="text">
-            <svg viewBox="0 0 700 100" class="magnifying-glass">
-            <path
-                    class="magnifying-glass-path"
-                    d="m 59.123035,59.123035 c -10.561361,10.56136 -27.684709,10.56136 -38.24607,0 -10.56136,-10.561361 -10.56136,-27.684709 0,-38.24607 10.561361,-10.56136 27.684709,-10.56136 38.24607,0 10.56136,10.561361 10.56136,27.684709 0,38.24607 l 28.876965,28.876965 c 6.304625,7.101523 5.754679,-0.187815 13.07143,-0.5 h 582.04101" />
-            <path
-                    class="x"
-                    d="m 673.46803,25.714286 -37.17876,38.816532 c 0,0 -5.08857,5.60515 -5.68529,11.841734 -1.06622,11.143538 13.02902,11.127448 13.02902,11.127448" />
-            <path
-                    class="x"
-                    d="m 635.08021,25.714286 37.17876,38.816532 c 0,0 5.08857,5.60515 5.68529,11.841734 1.06622,11.143538 -13.02902,11.127448 -13.02902,11.127448" />
-            </svg>
-            <div class="search__overlay search__overlay--first"></div>
-            <div class="search__overlay search__overlay--second"></div>
-        </section>
-        <section class="categories news-selects__categories">
-            <h2 class="visually-hidden">Search daily news by category.</h2>
-            <ul class="categories__list">
-                <li class="categories__item categories__item_general">
-                    <h3 class="categories__title visually-hidden">General News</h3>
-                    <img src="img/general.svg" alt="General" title="General" class="categories__icon">
-                </li>
-                <li class="categories__item categories__item_sport" data-category="sport">
-                    <h3 class="categories__title visually-hidden">Sport News</h3>
-                    <img src="img/sport.svg" alt="Sport" title="Sport" class="categories__icon">
-                </li>
-                <li class="categories__item categories__item_business" data-category="business">
-                    <h3 class="categories__title visually-hidden">Business News</h3>
-                    <img src="img/business.svg" alt="Business" title="Business" class="categories__icon">
-                </li>
-                <li class="categories__item categories__item_health" data-category="health">
-                    <h3 class="categories__title visually-hidden">Health News</h3>
-                    <img src="img/health.svg" alt="Health" title="Health" class="categories__icon">
-                </li>
-                <li class="categories__item categories__item_science" data-category="science">
-                    <h3 class="categories__title visually-hidden">Science News</h3>
-                    <img src="img/science.svg" alt="Science" title="Science" class="categories__icon">
-                </li>
-                <li class="categories__item categories__item_technology" data-category="technology">
-                    <h3 class="categories__title visually-hidden">Technology News</h3>
-                    <img src="img/technology.svg" alt="Technology" title="Technology" class="categories__icon">
+    <main class="news show-news">
+        <div class="news__news-selects news-selects">
+            <section class="news-selects__search search">
+                <h2 class="visually-hidden">Search news by query.</h2>
+                <input class="search__input" type="text">
+                <svg viewBox="0 0 700 100" class="magnifying-glass">
+                <path
+                        class="magnifying-glass-path"
+                        d="m 59.123035,59.123035 c -10.561361,10.56136 -27.684709,10.56136 -38.24607,0 -10.56136,-10.561361 -10.56136,-27.684709 0,-38.24607 10.561361,-10.56136 27.684709,-10.56136 38.24607,0 10.56136,10.561361 10.56136,27.684709 0,38.24607 l 28.876965,28.876965 c 6.304625,7.101523 5.754679,-0.187815 13.07143,-0.5 h 582.04101" />
+                <path
+                        class="x"
+                        d="m 673.46803,25.714286 -37.17876,38.816532 c 0,0 -5.08857,5.60515 -5.68529,11.841734 -1.06622,11.143538 13.02902,11.127448 13.02902,11.127448" />
+                <path
+                        class="x"
+                        d="m 635.08021,25.714286 37.17876,38.816532 c 0,0 5.08857,5.60515 5.68529,11.841734 1.06622,11.143538 -13.02902,11.127448 -13.02902,11.127448" />
+                </svg>
+                <div class="search__overlay search__overlay--first"></div>
+                <div class="search__overlay search__overlay--second"></div>
+            </section>
+            <section class="categories news-selects__categories">
+                <h2 class="visually-hidden">Search daily news by category.</h2>
+                <ul class="categories__list">
+                    <li class="categories__item categories__item_general">
+                        <h3 class="categories__title visually-hidden">General News</h3>
+                        <img src="img/general.svg" alt="General" title="General" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_sport" data-category="sport">
+                        <h3 class="categories__title visually-hidden">Sport News</h3>
+                        <img src="img/sport.svg" alt="Sport" title="Sport" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_business" data-category="business">
+                        <h3 class="categories__title visually-hidden">Business News</h3>
+                        <img src="img/business.svg" alt="Business" title="Business" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_health" data-category="health">
+                        <h3 class="categories__title visually-hidden">Health News</h3>
+                        <img src="img/health.svg" alt="Health" title="Health" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_science" data-category="science">
+                        <h3 class="categories__title visually-hidden">Science News</h3>
+                        <img src="img/science.svg" alt="Science" title="Science" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_technology" data-category="technology">
+                        <h3 class="categories__title visually-hidden">Technology News</h3>
+                        <img src="img/technology.svg" alt="Technology" title="Technology" class="categories__icon">
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <section class="news__list news-list">
+            <ul class="news-list__list">
+                <li class="news-list__item">
+                    Hello
+                    <!-- author
+                        description
+                        title
+                        url
+                        urlToImage -->
                 </li>
             </ul>
         </section>

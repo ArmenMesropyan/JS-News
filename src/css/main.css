@@ -1,3 +1,27 @@
+.sport {
+    background: url(../img/sport.svg);
+}
+
+.business {
+    background: url(../img/business.svg);
+}
+
+.general {
+    background: url(../img/general.svg);
+}
+
+.health {
+    background: url(../img/health.svg);
+}
+
+.science {
+    background: url(../img/science.svg);
+}
+
+.technology {
+    background: url(../img/technology.svg);
+}
+
 *,
 *::before,
 *::after {
@@ -70,11 +94,26 @@ img {
     margin-left: auto;
 }
 
+.show-news .news-selects {
+    left: -100%;
+}
+
+.news-list {
+    position: relative;
+    left: -100%;
+    transition: 0.5s;
+}
+
+.show-news .news-list {
+    left: 0;
+}
+
 .news-selects {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    transition: 0.5s;
 }
 
 .news-selects__search {
