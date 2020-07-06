@@ -5,6 +5,7 @@ import {
     categoriesUI,
     newsListUI,
     generateBack,
+    loginNotifyUI,
 } from './view';
 import { countriesAPI, newsAPI } from './services';
 
@@ -17,6 +18,13 @@ async function searchNewsByQuery({ key, target }) {
 async function searchNewsByCategory(category) {
     try {
         const articles = await newsAPI.getNewsByCategory(category, countriesUI.selectValue);
+        if (!articles.length) {
+            loginNotifyUI.showNotify();
+            // eslint-disable-next-line no-undef
+            M.toast({ html: 'Your country doesn\'t supported!' });
+            loginNotifyUI.generateNotify(() => console.log('registrate'));
+            return;
+        }
         newsListUI.showNews(articles);
     } catch (error) {
         console.log(error);
