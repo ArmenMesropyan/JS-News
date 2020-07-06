@@ -299,3 +299,36 @@ img {
 .news-list__back:focus {
     background: none;
 }
+
+.dropdown-content li>a,
+.dropdown-content li>span {
+    color: #483d3db3 !important;
+}
+
+.news-recomendation {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 4;
+    background: #00000069;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.news-recomendation__card {
+    max-width: 400px;
+    text-align: center;
+    cursor: default;
+}
+
+.news-recomendation__card svg {
+    transform: rotate(40deg);
+    margin-right: 5px;
+}
+
+.news-recomendation__registrate {
+    margin-bottom: 20px;
+}
