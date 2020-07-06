@@ -4,6 +4,7 @@ import {
     generateInput,
     categoriesUI,
     newsListUI,
+    generateBack,
 } from './view';
 import { countriesAPI, newsAPI } from './services';
 
@@ -29,6 +30,7 @@ async function generateApplication() {
         countriesUI.generateCountries(countries);
         const input = generateInput();
         categoriesUI.generateCategories(searchNewsByCategory);
+        generateBack(newsListUI.clearNews);
 
         input.addEventListener('keypress', searchNewsByQuery);
     } catch (error) {

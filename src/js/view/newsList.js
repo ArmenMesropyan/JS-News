@@ -2,6 +2,7 @@ class NewsListUI {
     constructor() {
         this.container = document.querySelector('.news-list__list');
         [this.main] = document.getElementsByTagName('main');
+        this.clearNews = this.clearNews.bind(this);
     }
 
     showNews(articles) {
@@ -32,6 +33,7 @@ class NewsListUI {
     }
 
     clearNews() {
+        this.container.innerHTML = '';
         this.main.classList.remove('show-news');
     }
 }
