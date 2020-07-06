@@ -15,7 +15,7 @@
             </select>
         </div>
     </header>
-    <main class="news show-news">
+    <main class="news">
         <div class="news__news-selects news-selects">
             <section class="news-selects__search search">
                 <h2 class="visually-hidden">Search news by query.</h2>
@@ -66,26 +66,16 @@
         </div>
         <section class="news__list news-list">
             <div class="container">
-                <ul class="news-list__list">
-                    <li class="news-list__item card">
-                        <div class="news-list__info card-image">
-                            <img src="https://www.golem.de/2007/149477-236007-236005_rc.jpg" class="news-list__img">
-                            <h3 class="news-list__title card-title">Title</h3>
-                        </div>
-                        <div class="news-list__description card-content">
-                            description
-                        </div>
-                        <div class="news-list__actions card-action">
-                            <p class="news-list__author">author</p>
-                            <a href="url" class="news-list__link">Read more</a>
-                        </div>
-                    </li>
-                </ul>
+                <button class="news-list__back">
+                    <i class="news-list__back-icon fas fa-chevron-circle-left"></i>
+                    Back to search
+                </button>
+                <ul class="news-list__list"></ul>
             </div>
         </section>
     </main>
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
 </body>
 
 </html>

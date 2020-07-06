@@ -1,17 +1,22 @@
 import '../css/main.css';
-import { countriesUI, generateInput, categoriesUI } from './view';
+import {
+    countriesUI,
+    generateInput,
+    categoriesUI,
+    newsListUI,
+} from './view';
 import { countriesAPI, newsAPI } from './services';
 
 async function searchNewsByQuery({ key, target }) {
     if (key !== 'Enter') return;
     const articles = await newsAPI.getNewsByQuery(target.value);
-    console.log('articles: ', articles);
+    newsListUI.showNews(articles);
 }
 
 async function searchNewsByCategory(category) {
     try {
         const articles = await newsAPI.getNewsByCategory(category, countriesUI.selectValue);
-        console.log('articles: ', articles);
+        newsListUI.showNews(articles);
     } catch (error) {
         console.log(error);
         // on-error
