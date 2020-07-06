@@ -250,3 +250,19 @@ img {
 .categories__item:hover::before {
     display: block;
 }
+
+.news-list__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.news-list .news-list__item {
+    max-width: calc(33% - 20px);
+    margin: 10px;
+}
+
+.news-list__title,
+.news-list__author {
+    font-weight: 500;
+}
