@@ -7,7 +7,7 @@ import {
     generateBack,
     loginNotifyUI,
 } from './view';
-import { countriesAPI, newsAPI } from './services';
+import { countriesAPI, newsAPI, firebaseActions } from './services';
 
 async function searchNewsByQuery({ key, target }) {
     if (key !== 'Enter') return;
@@ -32,14 +32,15 @@ async function searchNewsByCategory(category) {
     }
 }
 
-async function generateApplication() {
+async function generateApplication(user) {
     try {
+        console.log('user: ', user);
         const countries = await countriesAPI.getAllCountries();
         countriesUI.generateCountries(countries);
         const input = generateInput();
         categoriesUI.generateCategories(searchNewsByCategory);
         generateBack(newsListUI.clearNews);
-
+        // firebaseActions.signIn();
         input.addEventListener('keypress', searchNewsByQuery);
     } catch (error) {
         console.log(error);
@@ -48,3 +49,4 @@ async function generateApplication() {
 }
 
 document.addEventListener('DOMContentLoaded', generateApplication);
+firebaseActions.onUserChange(generateApplication);
