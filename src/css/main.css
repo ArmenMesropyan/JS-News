@@ -332,3 +332,60 @@ img {
 .news-recomendation__registrate {
     margin-bottom: 20px;
 }
+
+.news-auth {
+    position: absolute;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1;
+    cursor: pointer;
+}
+
+.news-auth__tabs {
+    max-width: 460px;
+    border-radius: 10px;
+}
+
+.news-auth .tabs .tab a {
+    color: rgba(38, 166, 154, 0.73);
+}
+
+.news-auth .tabs .tab a:hover,
+.news-auth .tabs .tab a.active {
+    color: #26a69a;
+}
+
+.news-auth .tabs .tab a:focus,
+.news-auth .tabs .tab a:focus.active {
+    background-color: rgba(38, 166, 154, 0.11);
+}
+
+.news-auth .tabs .indicator {
+    background-color: #26a69a;
+}
+
+.news-login__btn .fa-paper-plane {
+    margin-left: 5px;
+}
+
+.news-auth fieldset {
+    border: none;
+}
+
+.news-auth__login,
+.news-auth__registrate {
+    min-width: 450px;
+    cursor: default;
+}
+
+.news-auth__login .news-login__form label,
+.news-auth__registrate .news-registrate__form label {
+    top: 5px;
+    left: 11px;
+}

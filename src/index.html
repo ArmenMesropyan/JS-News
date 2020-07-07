@@ -16,6 +16,56 @@
         </div>
     </header>
     <main class="news">
+        <section class="news__auth news-auth">
+            <ul class="news-auth__tabs tabs">
+                <li class="news-auth__tab tab col s3"><a href="#login">Login</a></li>
+                <li class="news-auth__tab tab col s3"><a class="active" href="#registrate">Registrate</a></li>
+            </ul>
+            <div id="login" class="news-auth__login news-login">
+                <form class="news-login__form card">
+                    <div class="news-login__inputs card-content white-text">
+                        <fieldset class="input-field">
+                            <input id="login-email" type="text" class="validate">
+                            <label for="login-email">Email</label>
+                        </fieldset>
+                        <fieldset class="input-field">
+                            <input id="login-password" type="text" class="validate">
+                            <label for="login-password">Password</label>
+                        </fieldset>
+                    </div>
+                    <div class="news-login__btn card-action">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            Login
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="registrate" class="news-auth__registrate news-registrate">
+                <form class="news-registrate__form card">
+                    <div class="news-registrate__inputs card-content white-text">
+                        <fieldset class="input-field">
+                            <input id="username" type="text" class="validate">
+                            <label for="username">Username</label>
+                        </fieldset>
+                        <fieldset class="input-field">
+                            <input id="registrate-email" type="text" class="validate">
+                            <label for="registrate-email">Email</label>
+                        </fieldset>
+                        <fieldset class="input-field">
+                            <input id="registrate-password" type="text" class="validate">
+                            <label for="registrate-password">Password</label>
+                        </fieldset>
+                    </div>
+                    <div class="news-regisrate__btn card-action">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            Registrate
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
         <div class="news__news-selects news-selects">
             <section class="news-selects__search search">
                 <h2 class="visually-hidden">Search news by query.</h2>
