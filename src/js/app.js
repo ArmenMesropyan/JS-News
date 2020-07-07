@@ -6,6 +6,7 @@ import {
     newsListUI,
     generateBack,
     loginNotifyUI,
+    generateAuthentication,
 } from './view';
 import { countriesAPI, newsAPI } from './services';
 
@@ -22,7 +23,8 @@ async function searchNewsByCategory(category) {
             loginNotifyUI.showNotify();
             // eslint-disable-next-line no-undef
             M.toast({ html: 'Your country doesn\'t supported!' });
-            loginNotifyUI.generateNotify(() => console.log('registrate'));
+            loginNotifyUI.generateNotify(() => loginNotifyUI.clearNotify());
+            generateAuthentication();
             return;
         }
         newsListUI.showNews(articles);

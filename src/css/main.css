@@ -338,13 +338,19 @@ img {
     top: 0;
     width: 100vw;
     height: 100vh;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(162, 167, 169, 0.46);
     z-index: 1;
     cursor: pointer;
+    transition: 0.5s;
+}
+
+.show-auth {
+    display: flex;
+    transition: 0.5s;
 }
 
 .news-auth__tabs {
