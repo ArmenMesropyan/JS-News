@@ -42,7 +42,10 @@ export default function showAccount(user) {
         firebaseActions.updateCountry(user.uid, country);
     });
 
-    logOut.addEventListener('click', () => firebaseActions.logOut());
+    logOut.addEventListener('click', () => {
+        firebaseActions.logOut();
+        container.innerHTML = '';
+    });
 
     container.addEventListener('click', ({ target }) => {
         if (target.classList.contains('news__account')) container.innerHTML = '';

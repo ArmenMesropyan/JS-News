@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { firebaseActions } from '../services';
 
 const getValueById = (id) => document.getElementById(id).value;
@@ -11,12 +12,10 @@ class AuthenticationUI {
         this.showAuth = this.showAuth.bind(this);
     }
 
-    // eslint-disable-next-line class-methods-use-this
     get loginForm() {
         return document.querySelector('#login form');
     }
 
-    // eslint-disable-next-line class-methods-use-this
     get registrateForm() {
         return document.querySelector('#registrate form');
     }
@@ -47,7 +46,7 @@ class AuthenticationUI {
             const user = firebaseActions.signIn(email, password);
             user.then(() => {
                 localStorage.setItem('isRegister', true);
-                location.reload();
+                this.clearAuth();
                 // eslint-disable-next-line no-undef
             }).catch((err) => M.toast({ html: err }));
         });
@@ -70,21 +69,25 @@ class AuthenticationUI {
                 return;
             }
             firebaseActions.createUser(email, password);
-            location.reload();
+            this.clearAuth();
         });
+    }
+
+    clearAuth() {
+        const container = document.querySelector('.news-auth');
+        container.classList.remove('show-auth');
     }
 
     showAuth() {
         const container = document.querySelector('.news-auth');
         container.classList.add('show-auth');
         container.addEventListener('click', ({ target }) => {
-            if (target === container) container.classList.remove('show-auth');
+            if (target === container) this.clearAuth();
         });
         this.showLogin();
         this.showRegistrate();
     }
 
-    // eslint-disable-next-line class-methods-use-this
     generateAuthentication() {
         const authLinks = document.getElementsByClassName('auth');
 

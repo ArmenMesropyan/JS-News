@@ -11,7 +11,7 @@ class CountriesUI {
         return this.select.value;
     }
 
-    async generateCountries(countries, { uid } = {}) {
+    async generateCountries(countries, userID) {
         try {
             const user = await fetch('https://ipapi.co/json/').then((resp) => resp.json());
             const html = countries.map(({ alpha2Code, flag, name }) => `
@@ -24,8 +24,8 @@ class CountriesUI {
             this.select.value = user.country;
 
             firebaseActions.getCountry((data) => {
-                if (!uid) return;
-                this.select.value = data[uid].value;
+                if (!userID) return;
+                this.select.value = data[userID.uid].value;
                 generateMaterialize();
             });
 
