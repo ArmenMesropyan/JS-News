@@ -12,6 +12,7 @@ export default function generateInput() {
             input.focus();
         }, 200);
     });
+
     search.addEventListener('click', () => {
         if (!search.classList.contains('active')) return;
 
@@ -19,11 +20,13 @@ export default function generateInput() {
             input.focus();
         }, 200);
     });
+
     secondOverlay.addEventListener('click', () => {
         input.value = '';
         input.focus();
         search.classList.remove('searching');
     });
+
     document.body.addEventListener('click', (e) => {
         if (search.contains(e.target) && input.value.length === 0) return;
 
@@ -31,9 +34,11 @@ export default function generateInput() {
         search.classList.remove('searching');
         input.value = '';
     });
+
     input.addEventListener('keyup', (e) => {
         if (e.keyCode === 13) input.blur();
     });
+
     input.addEventListener('input', () => {
         if (input.value.length > 0) search.classList.add('searching');
         else search.classList.remove('searching');

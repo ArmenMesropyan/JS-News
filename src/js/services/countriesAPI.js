@@ -1,6 +1,7 @@
 class CountriesAPI {
     constructor() {
         this.url = 'https://restcountries.eu/rest/v2';
+        this.last = null;
     }
 
     // eslint-disable-next-line class-methods-use-this
@@ -11,6 +12,7 @@ class CountriesAPI {
     async getAllCountries() {
         try {
             const res = await fetch(`${this.url}/all`).then((resp) => resp.json());
+            this.last = res;
             return this.serializeCountries(res);
         } catch (error) {
             return Promise.reject(error);

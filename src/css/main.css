@@ -423,3 +423,24 @@ img {
 .auth__btn:focus {
     background: none;
 }
+
+.news-account {
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+    top: 0;
+    background: #00000087;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.news-account__wrapper {
+    min-width: 250px;
+    display: flex;
+    justify-content: center;
+    cursor: default;
+}

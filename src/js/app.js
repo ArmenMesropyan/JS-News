@@ -42,9 +42,9 @@ async function generateApplication(user) {
         authorizationUI.generateNavigation(user, authenticationUI.showAuth);
         const countries = await countriesAPI.getAllCountries();
         countriesUI.generateCountries(countries);
-        const input = generateInput();
         categoriesUI.generateCategories(searchNewsByCategory);
         generateBack(newsListUI.clearNews);
+        const input = generateInput();
         input.addEventListener('keypress', searchNewsByQuery);
     } catch (error) {
         console.log(error);

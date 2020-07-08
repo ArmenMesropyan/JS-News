@@ -5,4 +5,6 @@ export { default as newsListUI } from './newsList';
 export { default as generateBack } from './backToSearch';
 export { default as loginNotifyUI } from './loginNotify';
 export { default as authenticationUI } from './authentication';
+// eslint-disable-next-line import/no-cycle
 export { default as authorizationUI } from './authorization';
+export { default as showAccount } from './accountSettings';

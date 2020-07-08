@@ -1,3 +1,5 @@
+import { showAccount } from '.';
+
 class AuthorizationUI {
     constructor() {
         [this.container] = document.getElementsByClassName('auth');
@@ -8,7 +10,10 @@ class AuthorizationUI {
             <button class="auth__btn">${user ? 'Account Settings' : 'Log In'}</button>   
         `;
 
-        if (!user) document.querySelector('.auth__btn').addEventListener('click', cb);
+        const btn = document.querySelector('.auth__btn');
+
+        if (!user) btn.addEventListener('click', cb);
+        else btn.addEventListener('click', showAccount);
     }
 }
 
