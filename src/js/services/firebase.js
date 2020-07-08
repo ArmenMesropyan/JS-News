@@ -21,8 +21,7 @@ class FirebaseActions {
     }
 
     signIn(email, pass) {
-        localStorage.setItem('isRegister', true);
-        this.auth.signInWithEmailAndPassword(email, pass);
+        return this.auth.signInWithEmailAndPassword(email, pass);
     }
 
     createUser(email, pass) {
@@ -37,7 +36,5 @@ class FirebaseActions {
 }
 
 const firebaseActions = new FirebaseActions();
-
-firebaseActions.logOut();
 
 export default firebaseActions;

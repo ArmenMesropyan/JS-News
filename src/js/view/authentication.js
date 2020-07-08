@@ -31,9 +31,26 @@ class AuthenticationUI {
 
     showLogin() {
         const form = this.loginForm;
-        console.log('loginForm: ', form);
 
-        // loginForm.addEventListener('submit', () => {// });
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = getValueById('login-email');
+            const password = getValueById('login-password');
+
+            const isValid = this.validateInputs({ email, password });
+
+            if (!isValid) {
+                // eslint-disable-next-line no-undef
+                M.toast({ html: 'Invalid inputs, please retry!' });
+                return;
+            }
+            const user = firebaseActions.signIn(email, password);
+            user.then(() => {
+                localStorage.setItem('isRegister', true);
+                location.reload();
+                // eslint-disable-next-line no-undef
+            }).catch((err) => M.toast({ html: err }));
+        });
     }
 
     showRegistrate() {
@@ -53,11 +70,16 @@ class AuthenticationUI {
                 return;
             }
             firebaseActions.createUser(email, password);
+            location.reload();
         });
     }
 
     showAuth() {
-        document.querySelector('.news-auth').classList.add('show-auth');
+        const container = document.querySelector('.news-auth');
+        container.classList.add('show-auth');
+        container.addEventListener('click', ({ target }) => {
+            if (target === container) container.classList.remove('show-auth');
+        });
         this.showLogin();
         this.showRegistrate();
     }

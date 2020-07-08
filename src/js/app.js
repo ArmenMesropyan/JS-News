@@ -23,7 +23,7 @@ async function searchNewsByCategory(category) {
         if (!articles.length) {
             // eslint-disable-next-line no-undef
             M.toast({ html: 'Your country doesn\'t supported!' });
-            const user = localStorage.getItem('isRegister');
+            const user = JSON.parse(localStorage.getItem('isRegister'));
 
             if (!user) {
                 loginNotifyUI.showNotify();

@@ -11,7 +11,7 @@ class CategoriesUI {
 
     generateCategories(cb = () => {}) {
         Object.values(this.elements).forEach((elem) => {
-            elem.addEventListener('click', (e) => this.onCategoriesClick(e, cb));
+            elem.onclick = (e) => this.onCategoriesClick(e, cb);
         });
     }
 }
