@@ -1,12 +1,20 @@
-import { firebaseActions } from '../services';
+import { firebaseActions, countriesAPI, supportedCountries } from '../services';
+import { generateMaterialize } from '../plugins';
 
-export default function showAccount() {
+export default function showAccount(user) {
+    console.log('user: ', user);
     const container = document.querySelector('.account-settings');
     container.innerHTML = `
         <section class="news__account news-account">
             <div class="news-account__wrapper card">
                 <ul class="news-account__settings card-content">
+                    <li class="news-accout__setting icons">
+                        <select class="news-account__countries">
+                            <option value="" disabled selected>Choose your country</option>
+                        </select>
+                    </li>
                     <li class="news-account__setting">
+                        <button class="news-account__save btn waves-effect waves-light">Save</button>
                         <button class="news-account__logout btn waves-effect waves-light red">Log Out</button>
                     </li>
                 </ul>
@@ -14,6 +22,19 @@ export default function showAccount() {
         </section>
     `;
     const logOut = document.querySelector('.news-account__logout');
+    const select = document.querySelector('.news-account__countries');
+    const supported = supportedCountries.toString();
+    const countries = countriesAPI.last.filter(({ alpha2Code }) => supported.match(alpha2Code));
+
+    const html = countries.map(({ alpha2Code, flag, name }) => `
+                <option value="${alpha2Code}" data-icon="${flag}" class="countries-select__option">
+                    ${name}
+                </option>
+            `);
+
+    select.insertAdjacentHTML('afterbegin', html);
+
+    generateMaterialize();
 
     logOut.addEventListener('click', () => {
         firebaseActions.logOut();

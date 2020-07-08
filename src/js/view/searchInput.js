@@ -5,7 +5,7 @@ export default function generateInput() {
     const input = document.querySelector('.search__input');
 
     firstOverlay.addEventListener('click', () => {
-        search.classList.toggle('active');
+        search.classList.add('active');
         if (!search.classList.contains('active')) return;
 
         setTimeout(() => {

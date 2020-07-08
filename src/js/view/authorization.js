@@ -13,7 +13,7 @@ class AuthorizationUI {
         const btn = document.querySelector('.auth__btn');
 
         if (!user) btn.addEventListener('click', cb);
-        else btn.addEventListener('click', showAccount);
+        else btn.addEventListener('click', () => showAccount(user));
     }
 }
 
