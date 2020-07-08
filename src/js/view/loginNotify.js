@@ -18,7 +18,7 @@ class LoginNotifyUI {
                         </p>
                     </div>
                     <div class="news-recomendation__actions card-action">
-                        <button class="news-recomendation__registrate waves-effect waves-light btn registrate">Registrate!</button>
+                        <button class="news-recomendation__registrate waves-effect waves-light btn registrate auth">Registrate!</button>
                         <button class="news-recomendation__close waves-effect waves-light btn red cancel">Sorry, but it's not for me.</button>
                     </div>
                 </div>
@@ -28,12 +28,11 @@ class LoginNotifyUI {
         this.count++;
     }
 
-    generateNotify(registrate) {
+    generateNotify() {
         this.container.addEventListener('click', ({ target }) => {
             const isRegistrate = target.classList.contains('registrate');
             const isCancel = target.classList.contains('cancel');
-            if (isRegistrate) registrate();
-            else if (isCancel) this.clearNotify();
+            if (isRegistrate || isCancel) this.clearNotify();
         });
     }
 

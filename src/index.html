@@ -9,12 +9,17 @@
 
 <body>
     <noscript>Please enable JavaScript to use this application!</noscript>
-    <header class="countries-select">
-        <div class="container">
-            <select class="countries-select__select icons">
-                <option value="" disabled selected>Choose your country</option>
-            </select>
-        </div>
+    <header class="main-header">
+        <nav class="main-header__nav main-nav container">
+            <ul class="main-nav__list">
+                <li class="main-nav__item auth"></li>
+                <li class="main-nav__item countries-select">
+                    <select class="countries-select__select icons">
+                        <option value="" disabled selected>Choose your country</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
     </header>
     <main class="news">
         <section class="news__auth news-auth">
@@ -30,7 +35,7 @@
                             <label for="login-email">Email</label>
                         </fieldset>
                         <fieldset class="input-field">
-                            <input id="login-password" type="text" class="validate">
+                            <input id="login-password" type="password" class="validate">
                             <label for="login-password">Password</label>
                         </fieldset>
                     </div>
@@ -54,7 +59,7 @@
                             <label for="registrate-email">Email</label>
                         </fieldset>
                         <fieldset class="input-field">
-                            <input id="registrate-password" type="text" class="validate">
+                            <input id="registrate-password" type="password" class="validate">
                             <label for="registrate-password">Password</label>
                         </fieldset>
                     </div>

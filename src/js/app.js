@@ -6,9 +6,10 @@ import {
     newsListUI,
     generateBack,
     loginNotifyUI,
-    generateAuthentication,
+    authenticationUI,
+    authorizationUI,
 } from './view';
-import { countriesAPI, newsAPI } from './services';
+import { countriesAPI, newsAPI, firebaseActions } from './services';
 
 async function searchNewsByQuery({ key, target }) {
     if (key !== 'Enter') return;
@@ -20,28 +21,30 @@ async function searchNewsByCategory(category) {
     try {
         const articles = await newsAPI.getNewsByCategory(category, countriesUI.selectValue);
         if (!articles.length) {
-            loginNotifyUI.showNotify();
             // eslint-disable-next-line no-undef
             M.toast({ html: 'Your country doesn\'t supported!' });
-            loginNotifyUI.generateNotify(() => loginNotifyUI.clearNotify());
-            generateAuthentication();
-            return;
-        }
-        newsListUI.showNews(articles);
+            const user = localStorage.getItem('isRegister');
+
+            if (!user) {
+                loginNotifyUI.showNotify();
+                loginNotifyUI.generateNotify();
+                authenticationUI.generateAuthentication();
+            }
+        } else newsListUI.showNews(articles);
     } catch (error) {
         console.log(error);
         // on-error
     }
 }
 
-async function generateApplication() {
+async function generateApplication(user) {
     try {
+        authorizationUI.generateNavigation(user, authenticationUI.showAuth);
         const countries = await countriesAPI.getAllCountries();
         countriesUI.generateCountries(countries);
         const input = generateInput();
         categoriesUI.generateCategories(searchNewsByCategory);
         generateBack(newsListUI.clearNews);
-        // firebaseActions.signIn();
         input.addEventListener('keypress', searchNewsByQuery);
     } catch (error) {
         console.log(error);
@@ -49,4 +52,7 @@ async function generateApplication() {
     }
 }
 
-document.addEventListener('DOMContentLoaded', generateApplication);
+document.addEventListener('DOMContentLoaded', () => {
+    generateApplication();
+    firebaseActions.onUserChange(generateApplication);
+});

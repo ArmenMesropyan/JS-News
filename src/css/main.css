@@ -395,3 +395,31 @@ img {
     top: 5px;
     left: 11px;
 }
+
+.main-header .main-nav {
+    background: none;
+    box-shadow: none;
+}
+
+.main-nav__list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.auth__btn {
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-weight: 500;
+    transition: 0.5s;
+}
+
+.auth__btn:hover {
+    color: #969090;
+    transition: 0.5s;
+}
+
+.auth__btn:focus {
+    background: none;
+}

@@ -21,14 +21,23 @@ class FirebaseActions {
     }
 
     signIn(email, pass) {
+        localStorage.setItem('isRegister', true);
         this.auth.signInWithEmailAndPassword(email, pass);
     }
 
     createUser(email, pass) {
+        localStorage.setItem('isRegister', true);
         this.auth.createUserWithEmailAndPassword(email, pass);
+    }
+
+    logOut() {
+        localStorage.setItem('isRegister', false);
+        this.auth.signOut();
     }
 }
 
 const firebaseActions = new FirebaseActions();
+
+firebaseActions.logOut();
 
 export default firebaseActions;
