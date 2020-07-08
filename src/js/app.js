@@ -41,7 +41,7 @@ async function generateApplication(user) {
     try {
         authorizationUI.generateNavigation(user, authenticationUI.showAuth);
         const countries = await countriesAPI.getAllCountries();
-        countriesUI.generateCountries(countries);
+        countriesUI.generateCountries(countries, user);
         categoriesUI.generateCategories(searchNewsByCategory);
         generateBack(newsListUI.clearNews);
         const input = generateInput();

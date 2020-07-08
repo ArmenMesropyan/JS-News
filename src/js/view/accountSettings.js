@@ -2,7 +2,6 @@ import { firebaseActions, countriesAPI, supportedCountries } from '../services';
 import { generateMaterialize } from '../plugins';
 
 export default function showAccount(user) {
-    console.log('user: ', user);
     const container = document.querySelector('.account-settings');
     container.innerHTML = `
         <section class="news__account news-account">
@@ -22,6 +21,7 @@ export default function showAccount(user) {
         </section>
     `;
     const logOut = document.querySelector('.news-account__logout');
+    const saveBtn = document.querySelector('.news-account__save');
     const select = document.querySelector('.news-account__countries');
     const supported = supportedCountries.toString();
     const countries = countriesAPI.last.filter(({ alpha2Code }) => supported.match(alpha2Code));
@@ -36,10 +36,13 @@ export default function showAccount(user) {
 
     generateMaterialize();
 
-    logOut.addEventListener('click', () => {
-        firebaseActions.logOut();
-        location.reload();
+    saveBtn.addEventListener('click', () => {
+        const country = select.value;
+        if (!country) return;
+        firebaseActions.updateCountry(user.uid, country);
     });
+
+    logOut.addEventListener('click', () => firebaseActions.logOut());
 
     container.addEventListener('click', ({ target }) => {
         if (target.classList.contains('news__account')) container.innerHTML = '';

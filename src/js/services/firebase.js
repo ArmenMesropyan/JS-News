@@ -13,7 +13,17 @@ firebase.initializeApp(firebaseConfig);
 
 class FirebaseActions {
     constructor() {
+        const database = firebase.database();
         this.auth = firebase.auth();
+        this.defaultCountries = database.ref('/defaultCountries');
+    }
+
+    updateCountry(id, value) {
+        this.defaultCountries.child(id).update({ value });
+    }
+
+    getCountry(cb) {
+        this.defaultCountries.orderByKey().on('value', (data) => cb(data.val()));
     }
 
     onUserChange(cb) {
