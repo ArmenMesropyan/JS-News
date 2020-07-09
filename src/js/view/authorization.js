@@ -5,7 +5,8 @@ class AuthorizationUI {
         [this.container] = document.getElementsByClassName('auth');
     }
 
-    generateNavigation(user, cb) {
+    generateNavigation(cb) {
+        const user = JSON.parse(localStorage.getItem('user'));
         this.container.innerHTML = `
             <button class="auth__btn">${user ? 'Account Settings' : 'Log In'}</button>   
         `;

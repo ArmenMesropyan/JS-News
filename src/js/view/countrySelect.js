@@ -11,8 +11,9 @@ class CountriesUI {
         return this.select.value;
     }
 
-    async generateCountries(countries, userID) {
+    async generateCountries(countries) {
         try {
+            const userID = JSON.parse(localStorage.getItem('user'));
             const user = await fetch('https://ipapi.co/json/').then((resp) => resp.json());
             const html = countries.map(({ alpha2Code, flag, name }) => `
                 <option value="${alpha2Code}" data-icon="${flag}" class="countries-select__option">

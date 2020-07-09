@@ -39,9 +39,10 @@ async function searchNewsByCategory(category) {
 
 async function generateApplication(user) {
     try {
-        authorizationUI.generateNavigation(user, authenticationUI.showAuth);
+        localStorage.setItem('user', JSON.stringify(user));
+        authorizationUI.generateNavigation(authenticationUI.showAuth);
         const countries = await countriesAPI.getAllCountries();
-        countriesUI.generateCountries(countries, user);
+        countriesUI.generateCountries(countries);
         categoriesUI.generateCategories(searchNewsByCategory);
         generateBack(newsListUI.clearNews);
         const input = generateInput();

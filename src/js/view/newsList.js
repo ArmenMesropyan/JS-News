@@ -6,6 +6,8 @@ class NewsListUI {
     }
 
     showNews(articles) {
+        const user = JSON.parse(localStorage.getItem('user'));
+        console.log('user: ', user);
         this.main.classList.add('show-news');
         this.container.innerHTML = '';
         const html = articles.map(({
@@ -24,6 +26,9 @@ class NewsListUI {
                     <p class="news-list__description">${description}</p>
                 </div>
                 <div class="news-list__actions card-action">
+                    <button class="news-list__favorite-btn">
+                        <i class="fas fa-heart"></i>
+                    </button>
                     <p class="news-list__author">${author || 'Unknown source'}</p>
                     <a href="${url}" target="_blank" class="news-list__link">Read more</a>
                 </div>
