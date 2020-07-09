@@ -16,6 +16,20 @@ class FirebaseActions {
         const database = firebase.database();
         this.auth = firebase.auth();
         this.defaultCountries = database.ref('/defaultCountries');
+        this.likedNews = database.ref('/likedNews');
+    }
+
+    addNews(user, value) {
+        this.likedNews.child(user).update({ value });
+    }
+
+    removeNews(id, value, list) {
+        const newList = list.filter((item) => item.title !== value.title && item.description !== value.description);
+        this.likedNews.child(id).update({ value: newList });
+    }
+
+    getNews(cb) {
+        this.likedNews.orderByKey().on('value', (data) => cb(data.val()));
     }
 
     updateCountry(id, value) {
