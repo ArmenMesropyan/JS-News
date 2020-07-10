@@ -475,3 +475,11 @@ img {
     color: #4d4848;
     transition: .5s;
 }
+
+.news-accout__setting--favorites {
+    text-align: center;
+}
+
+.news-account__favorites {
+    margin: 15px 0;
+}

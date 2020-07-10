@@ -9,21 +9,20 @@ class NewsListUI {
     }
 
     onFavoriteBtnClick({ target }, likedNews) {
-        console.log('likedNews: ', likedNews);
         const { uid } = JSON.parse(localStorage.getItem('user'));
 
         const btn = target.closest('.news-list__favorite-btn');
         btn.classList.toggle('active');
 
         const item = target.closest('.news-list__item');
-        const img = item.querySelector('.news-list__img').src;
+        const urlToImage = item.querySelector('.news-list__img').src;
         const title = item.querySelector('.news-list__title').innerText;
         const description = item.querySelector('.news-list__description').innerText;
         const author = item.querySelector('.news-list__author').innerText;
         const url = item.querySelector('.news-list__link').href;
 
         const news = {
-            img,
+            urlToImage,
             title,
             description,
             author,

@@ -1,7 +1,9 @@
 import { firebaseActions, countriesAPI, supportedCountries } from '../services';
 import { generateMaterialize } from '../plugins';
+import { newsListUI, authenticationUI } from '.';
 
 export default function showAccount(user) {
+    authenticationUI.clearAuth();
     const container = document.querySelector('.account-settings');
     container.innerHTML = `
         <section class="news__account news-account">
@@ -11,6 +13,9 @@ export default function showAccount(user) {
                         <select class="news-account__countries">
                             <option value="" disabled selected>Choose your country</option>
                         </select>
+                    </li>
+                    <li class="news-accout__setting news-accout__setting--favorites">
+                        <button class="news-account__favorites btn waves-effect waves-light green">Show Favorites</button>
                     </li>
                     <li class="news-account__setting">
                         <button class="news-account__save btn waves-effect waves-light">Save</button>
@@ -22,6 +27,7 @@ export default function showAccount(user) {
     `;
     const logOut = document.querySelector('.news-account__logout');
     const saveBtn = document.querySelector('.news-account__save');
+    const favoritesBtn = document.querySelector('.news-account__favorites');
     const select = document.querySelector('.news-account__countries');
     const supported = supportedCountries.toString();
     const countries = countriesAPI.last.filter(({ alpha2Code }) => supported.match(alpha2Code));
@@ -45,6 +51,14 @@ export default function showAccount(user) {
     logOut.addEventListener('click', () => {
         firebaseActions.logOut();
         container.innerHTML = '';
+    });
+
+    favoritesBtn.addEventListener('click', () => {
+        firebaseActions.getNews((data) => {
+            if (!data) return;
+            container.innerHTML = '';
+            newsListUI.generateNews(data[user.uid].value, data[user.uid]);
+        });
     });
 
     container.addEventListener('click', ({ target }) => {
