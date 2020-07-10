@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Application! Search your country daily articles!</title>
+<link href="./style.css" rel="stylesheet"></head>
+
+<body>
+    <noscript>Please enable JavaScript to use this application!</noscript>
+    <header class="main-header">
+        <nav class="main-header__nav main-nav container">
+            <ul class="main-nav__list">
+                <li class="main-nav__item auth"></li>
+                <li class="main-nav__item countries-select">
+                    <select class="countries-select__select icons">
+                        <option value="" disabled selected>Choose your country</option>
+                    </select>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="news">
+        <section class="news__auth news-auth">
+            <ul class="news-auth__tabs tabs">
+                <li class="news-auth__tab tab col s3"><a href="#login">Login</a></li>
+                <li class="news-auth__tab tab col s3"><a class="active" href="#registrate">Registrate</a></li>
+            </ul>
+            <div id="login" class="news-auth__login news-login">
+                <form class="news-login__form card">
+                    <div class="news-login__inputs card-content white-text">
+                        <fieldset class="input-field">
+                            <input id="login-email" type="text" class="validate">
+                            <label for="login-email">Email</label>
+                        </fieldset>
+                        <fieldset class="input-field">
+                            <input id="login-password" type="password" class="validate">
+                            <label for="login-password">Password</label>
+                        </fieldset>
+                    </div>
+                    <div class="news-login__btn card-action">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            Login
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div id="registrate" class="news-auth__registrate news-registrate">
+                <form class="news-registrate__form card">
+                    <div class="news-registrate__inputs card-content white-text">
+                        <fieldset class="input-field">
+                            <input id="username" type="text" class="validate">
+                            <label for="username">Username</label>
+                        </fieldset>
+                        <fieldset class="input-field">
+                            <input id="registrate-email" type="text" class="validate">
+                            <label for="registrate-email">Email</label>
+                        </fieldset>
+                        <fieldset class="input-field">
+                            <input id="registrate-password" type="password" class="validate">
+                            <label for="registrate-password">Password</label>
+                        </fieldset>
+                    </div>
+                    <div class="news-regisrate__btn card-action">
+                        <button class="btn waves-effect waves-light" type="submit" name="action">
+                            Registrate
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </section>
+        <div class="news__news-selects news-selects">
+            <section class="news-selects__search search">
+                <h2 class="visually-hidden">Search news by query.</h2>
+                <input class="search__input" type="text">
+                <svg viewBox="0 0 700 100" class="magnifying-glass">
+                <path
+                        class="magnifying-glass-path"
+                        d="m 59.123035,59.123035 c -10.561361,10.56136 -27.684709,10.56136 -38.24607,0 -10.56136,-10.561361 -10.56136,-27.684709 0,-38.24607 10.561361,-10.56136 27.684709,-10.56136 38.24607,0 10.56136,10.561361 10.56136,27.684709 0,38.24607 l 28.876965,28.876965 c 6.304625,7.101523 5.754679,-0.187815 13.07143,-0.5 h 582.04101" />
+                <path
+                        class="x"
+                        d="m 673.46803,25.714286 -37.17876,38.816532 c 0,0 -5.08857,5.60515 -5.68529,11.841734 -1.06622,11.143538 13.02902,11.127448 13.02902,11.127448" />
+                <path
+                        class="x"
+                        d="m 635.08021,25.714286 37.17876,38.816532 c 0,0 5.08857,5.60515 5.68529,11.841734 1.06622,11.143538 -13.02902,11.127448 -13.02902,11.127448" />
+                </svg>
+                <div class="search__overlay search__overlay--first"></div>
+                <div class="search__overlay search__overlay--second"></div>
+            </section>
+            <section class="categories news-selects__categories">
+                <h2 class="visually-hidden">Search daily news by category.</h2>
+                <ul class="categories__list">
+                    <li class="categories__item categories__item_general">
+                        <h3 class="categories__title visually-hidden">General News</h3>
+                        <img src="img/general.svg" alt="General" title="General" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_sport" data-category="sport">
+                        <h3 class="categories__title visually-hidden">Sport News</h3>
+                        <img src="img/sport.svg" alt="Sport" title="Sport" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_business" data-category="business">
+                        <h3 class="categories__title visually-hidden">Business News</h3>
+                        <img src="img/business.svg" alt="Business" title="Business" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_health" data-category="health">
+                        <h3 class="categories__title visually-hidden">Health News</h3>
+                        <img src="img/health.svg" alt="Health" title="Health" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_science" data-category="science">
+                        <h3 class="categories__title visually-hidden">Science News</h3>
+                        <img src="img/science.svg" alt="Science" title="Science" class="categories__icon">
+                    </li>
+                    <li class="categories__item categories__item_technology" data-category="technology">
+                        <h3 class="categories__title visually-hidden">Technology News</h3>
+                        <img src="img/technology.svg" alt="Technology" title="Technology" class="categories__icon">
+                    </li>
+                </ul>
+            </section>
+        </div>
+        <section class="news__list news-list">
+            <h2 class="visually-hidden">News List.</h2>
+            <div class="container">
+                <button class="news-list__back">
+                    <i class="news-list__back-icon fas fa-chevron-circle-left"></i>
+                    Back to search
+                </button>
+                <ul class="news-list__list"></ul>
+            </div>
+        </section>
+        <div class="account-settings"></div>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase.js"></script>
+<script type="text/javascript" src="polyfill.188c43640d455f3a18b8.js"></script><script type="text/javascript" src="app.188c43640d455f3a18b8.js"></script></body>
+
+</html>
